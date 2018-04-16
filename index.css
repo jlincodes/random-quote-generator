@@ -29,4 +29,11 @@ body {
 
 #button {
   color: white;
+  font-weight: bold;
+  height: 30px;
+  border-radius: 3px;
+}
+
+button:hover {
+  cursor: pointer;
 }

@@ -7,8 +7,35 @@ const quotes = [
   'Having a family doesn’t mean that you stop being an individual. You know the best thing you can do for the people that depend on you? Be honest with them, even if it means setting them free. - Mr. Meeseeks',
 ];
 
-function getRandomQuote() {
-	const randomIdx = Math.floor(Math.random() * quotes.length);
-  const display = document.getElementById('display');
-  display.innerText = quotes[randomIdx];
+const colors = [
+ 'rgb(191, 63, 63)',
+ 'rgb(191, 127, 63)',
+ 'rgb(191, 191, 63)',
+ 'rgb(63, 191, 63)',
+ 'rgb(63, 127, 191)',
+ 'rgb(127, 63, 191)'
+];
+
+function getRandomQuote(num) {
+  const randomIdx = Math.floor(Math.random() * quotes.length);
+  const quote = quotes[randomIdx].split(' - ');
+  const quoteDisplay = document.getElementById('quote');
+  const authorDisplay = document.getElementById('author');
+  quoteDisplay.innerText = '"' + quote[0] + '"';
+  authorDisplay.innerText = '- ' + quote[1];
+  const color = getRandomColor(randomIdx);
+  const colorChange = document.getElementsByClassName('changeColor');
+  for (let i = 0; i < colorChange.length; i ++) {
+    colorChange[i].style.backgroundColor = color;
+  }
+  document.getElementById('main').style.color = color;
 }
+
+function getRandomColor(num) {
+  return colors[num];
+}
+
+window.onload = () => {
+  getRandomQuote();
+  getRandomColor();
+};

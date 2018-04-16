@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="index.css">
   </head>
-  <body>
-    <h1>Hello, World!</h1>
-    <p id="display"></p>
-    <button id="button" onclick="getRandomQuote()" type="button" name="button">Generate Quote</button>
+  <body class="changeColor">
+    <div id="main">
+      <button class="changeColor" id="button" onclick="getRandomQuote()" type="button" name="button">Generate Quote</button>
+      <div id="display">
+        <p id="quote"></p>
+        <p id="author"></p>
+      </div>
+    </div>
   </body>
   <script src="quote-gen.js"></script>
 </html>

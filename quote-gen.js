@@ -16,26 +16,33 @@ const colors = [
  'rgb(127, 63, 191)'
 ];
 
-function getRandomQuote(num) {
-  const randomIdx = Math.floor(Math.random() * quotes.length);
-  const quote = quotes[randomIdx].split(' - ');
+function randomize() {
+  getRandomQuote();
+  getRandomColor();
+}
+
+function getRandomQuote() {
+  const randomNum = Math.floor(Math.random() * quotes.length);
+  const quote = quotes[randomNum].split(' - ');
   const quoteDisplay = document.getElementById('quote');
   const authorDisplay = document.getElementById('author');
   quoteDisplay.innerText = '"' + quote[0] + '"';
   authorDisplay.innerText = '- ' + quote[1];
-  const color = getRandomColor(randomIdx);
-  const colorChange = document.getElementsByClassName('changeColor');
-  for (let i = 0; i < colorChange.length; i ++) {
-    colorChange[i].style.backgroundColor = color;
+}
+
+function getRandomColor() {
+  const randomNum = Math.floor(Math.random() * colors.length);
+  const color = colors[randomNum];
+
+  const changeColor = document.getElementsByClassName('changeColor');
+
+  for (let i = 0; i < changeColor.length; i ++) {
+    changeColor[i].style.backgroundColor = color;
   }
+
   document.getElementById('main').style.color = color;
 }
 
-function getRandomColor(num) {
-  return colors[num];
-}
-
 window.onload = () => {
-  getRandomQuote();
-  getRandomColor();
+  randomize();
 };
